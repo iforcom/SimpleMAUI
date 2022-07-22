@@ -12,13 +12,17 @@ namespace MauiApp4.ViewModel
     [AddINotifyPropertyChangedInterface]
     public class MainPageViewModel
     {
+        private readonly TestService testService;
+
+        public MainPageViewModel(TestService testService)
+        {
+            CountMessage = "Hello!!!!";
+            this.testService = testService;
+        }
+
         private int Count = 0;
         public string CountMessage { get; set; } = string.Empty;
 
-        public MainPageViewModel()
-        {
-            CountMessage = "Hello!!!!";
-        }
 
         public ICommand YeahCommand => new RelayCommand(() =>
         {
